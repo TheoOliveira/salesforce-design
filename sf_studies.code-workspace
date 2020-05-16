@@ -1,7 +1,13 @@
 {
 	"folders": [
 		{
+			"path": "LWC_Practice"
+		},
+		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"salesforcedx-vscode-core.show-cli-success-msg": false
+	}
 }
