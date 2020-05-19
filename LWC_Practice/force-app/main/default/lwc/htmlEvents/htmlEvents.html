@@ -18,8 +18,15 @@
     <h2>Second Image</h2>
     <img src="https://http2.mlstatic.com/tom-jerry-1-totem-50cm-10-displays-D_NQ_NP_812055-MLB29474693116_022019-F.jpg" width="400" height="auto">
 </template>
-
+<lightning-card title="Contacts (use of for:each" icon-name="standard:contact">
+    <template for:each={contacts} for:item="item" for:index="index">
+        <p key={item.id} class="slds-m-around_small">
+            {index} - {item.Name} - &nbsp; {item.Email}
+        </p>
+    </template>
+</lightning-card>
 
 
 </div>
+
 </template>
