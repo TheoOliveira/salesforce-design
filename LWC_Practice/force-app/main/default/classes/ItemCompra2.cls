@@ -19,15 +19,17 @@ public ItemCompra2(ItemCompra__c itemcompraObj)
     
 public void addProd(ProdutosFloricultura__c prodId)
 {
-    let selector = [SELECT Item__c, Preco__c, Estoque__c 
+    let prodSelector = [SELECT Item__c, Preco__c, Estoque__c 
     FROM ProdutosFloricultura__c WHERE Id in :prodId];
-
+    
+    prodSelector = produto;
 }
+
 public Boolean checkQuantidade()
 {
-    if (produto.estoque == quantidadeItem || produto.estoque == 0) {
+    if (produto.Estoque__c == quantidadeItem || produto.Estoque__c == 0) {
         insuficienteEstoque = true;
-    }else if (quantidadeItem < produto.estoque){
+    }else if (quantidadeItem < produto.Estoque__c){
         insuficienteEstoque = false;
     }
 return insuficienteEstoque;
