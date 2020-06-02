@@ -23,9 +23,9 @@ public Compra2(Compra__c compraObj)
     lista = new List<ItemCompra2>();    
 }
 
-public void addItem()
+public void addItem()     // adicionar item da Lista ou dar update
 {
-    // adicionar item da Lista ou dar update
+    
 }
     
 

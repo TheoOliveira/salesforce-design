@@ -17,23 +17,20 @@ public ItemCompra2(ItemCompra__c itemcompraObj)
 }
 
     
-public void addProd()
+public void addProd(ProdutosFloricultura__c prodId)
 {
-    try {
-        insuficienteEstoque = true;
-    } catch (Exception e) {
-        System.debug('Não é possivel adicionar este produto. Sem Estoque.');
-    }
+    let selector = [SELECT Item__c, Preco__c, Estoque__c 
+    FROM ProdutosFloricultura__c WHERE Id in :prodId];
 
 }
-public void checkQuantidade()
+public Boolean checkQuantidade()
 {
     if (produto.estoque == quantidadeItem || produto.estoque == 0) {
         insuficienteEstoque = true;
     }else if (quantidadeItem < produto.estoque){
         insuficienteEstoque = false;
     }
-
+return insuficienteEstoque;
 }
 
 public void updateEstoque()

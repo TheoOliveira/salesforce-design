@@ -8,10 +8,11 @@ public with sharing class ClienteFloricultura2
     public String endereco {get; set;}
     public Double telefone {get; set;}
     public String categoriaCliente {get; set;}
+    public Integer totalNumCompras {get; set;}
+    public Double valoresTotais {get; set;}
     //SObjects
     public List<Compra2> lista {get; set;}
     public ClientesFloricultura__c cliente {get; set;}
-
  
  public ClienteFloricultura2 (ClientesFloricultura__c cliente)
  {
@@ -21,21 +22,26 @@ public with sharing class ClienteFloricultura2
     rg = cliente.RG__c;
     endereco = cliente.Endereco__c;
     telefone = cliente.Telefone__c;
+    totalNumCompras = cliente.Total_de_Compras__c;
     categoriaCliente = cliente.Categoria_Cliente__c;
+    valoresTotais = cliente.ValoresTotais__c;
     lista = new List<Compra2>();
  }
  
 
-public void addCompra()
+public ClienteFloricultura2__c clienteSelector(ClientesFloricultura__c clienteId)
 {
+  clienteSelector = [SELECT Nome__c, CPF__c, RG__c, Endereco__c, Telefone__c, Total_de_Compras__c, 
+  ValoresTotais__c, Categoria_Cliente__c FROM ClientesFloricultura__c WHERE Id in :clienteId];
 
+  return clienteSelector;
 }
  
 public String checkCategoriaCliente()
 {
  if(ticketMedio == 50 && numberoItens >=3 ){
      categoriaCliente == 'Black';
- }else if (ticketMedio == 50 && numberoItens == 1) {
+ }else if (ticketMedio == 50 && numeroItens == 1) {
      categoriaCliente == 'Gold';
  }else if (ticketMedio < 50 && numeroItens == 1){
    categoriaCliente == 'Silver';
