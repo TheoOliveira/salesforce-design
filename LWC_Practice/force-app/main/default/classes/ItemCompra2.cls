@@ -10,19 +10,16 @@ public with sharing class ItemCompra2
 
 public ItemCompra2(ItemCompra__c itemcompraObj)
 {
-    itemCompraId = itemcompraObj.Name;
+    itemCompraId = itemcompraObj.Id;
     quantidadeItem = itemcompraObj.Quantidade_do_Item__c;
     valorTotal = itemcompraObj.ValorTotal__c;
-    produto = new ProdutosFloricultura__c();
+    
 }
 
     
-public void addProd(ProdutosFloricultura__c prodId)
+public void addProd(ProdutosFloricultura__c prod)
 {
-    let prodSelector = [SELECT Item__c, Preco__c, Estoque__c 
-    FROM ProdutosFloricultura__c WHERE Id in :prodId];
-    
-    prodSelector = produto;
+    prod = produto;
 }
 
 public Boolean checkQuantidade()

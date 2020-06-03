@@ -7,44 +7,43 @@ public with sharing class Compra2
     public String statusCompra {get; set;}
     public Double ticketMedio {get; set;}
     public Double valorTotalCompras {get; set;}
-    public Double numberoItens {get; set;}
+    public Double numeroItens {get; set;}
     //SObjects
-    public Compra__c compra {get; set;}
     public List<ItemCompra2> lista {get; set;}
 
 public Compra2(Compra__c compraObj)
 {
-    compraId = compraObj.Name;   
+    compraId = compraObj.Id;   
     dataCompra = compraObj.Data_Compra__c;
     statusCompra = compraObj.Status_da_Compra__c;
     ticketMedio = compraObj.Ticket_Medio__c;
     valorTotalCompras = compraObj.Valor_Total_da_Compra__c;
-    numberoItens = compraObj.Numero_de_Itens_Comprados__c;
+    numeroItens = compraObj.Numero_de_Itens_Comprados__c;
     lista = new List<ItemCompra2>();    
 }
+public class Compra2Exception extends Exception {}
 
-public void addItem()     // adicionar item da Lista ou dar update
-{
+public void addItemList(ItemCompra2 compra){
+    lista.add(compra);
+} 
     
-}
-    
 
 
-public void checkStatus()
+/* public void checkStatus()
 { 
-    if(numberoItens == 0 ){
-        statusCompra == 'Novo';
-    }else if (numberoItens == 1){
-        statusCompra == 'Em negociação';
+    if(numeroItens == 0 ){
+        statusCompra = 'Novo';
+    }else if (numeroItens >= 1){
+        statusCompra = 'Em negociação';
     }
-}
+} */
 
-public void checkApprovalPermit(){
-    try {
-        statusCompra == 'Novo' && isSubmmit == true;
-    } catch (Exception e) {
-        System.debug('Não é permitido envio para aprovação sem Produto.');
-    }
-}
+public String checkApprovalPermit(){
+            if(statusCompra == 'Novo' && numeroItens >= 1 )
+            statusCompra = 'Em aprovação';
+            return statusCompra; 
+            throw new Compra2Exception('Aprovação não pode ser efetivada'); 
+    
 
+}
 }

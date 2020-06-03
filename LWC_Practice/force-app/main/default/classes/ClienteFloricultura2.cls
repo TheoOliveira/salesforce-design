@@ -1,57 +1,64 @@
 
 public with sharing class ClienteFloricultura2 
 {
-    public  Id clienteId {get; set;}
-    public String nome {get; set;}
-    public String cpf {get; set;}
-    public Double rg {get; set;}
-    public String endereco {get; set;}
-    public Double telefone {get; set;}
-    public String categoriaCliente {get; set;}
-    public Integer totalNumCompras {get; set;}
-    public Double valoresTotais {get; set;}
+    //using
+    public static  Id clienteId {get; set;}
+    public static String nome {get; set;}
+    public static String cpf {get; set;}
+    public static Double rg {get; set;}
+    public static String endereco {get; set;}
+    public static Decimal telefone {get; set;}
+    // end of using
+    public static String categoriaCliente {get; set;}
+    public static Decimal totalNumCompras {get; set;}
+    public static Decimal valoresTotais {get; set;}
+    public static Decimal numeroItens {get;set;}
+    public static Decimal ticketMedio {get; set;}
     //SObjects
-    public List<Compra2> lista {get; set;}
-    public ClientesFloricultura__c cliente {get; set;}
- 
+    public static List<Compra2> lista {get; set;}
+    public static ClientesFloricultura__c record {get; set;}
+    
+
  public ClienteFloricultura2 (ClientesFloricultura__c cliente)
  {
-    clienteId = cliente.Name;
+    record = cliente;
+    //using
+    clienteId = cliente.Id;
     nome = cliente.Nome__c;
     cpf = cliente.CPF__c;
     rg = cliente.RG__c;
-    endereco = cliente.Endereco__c;
+    endereco = cliente.Endereco__c; 
     telefone = cliente.Telefone__c;
+    //end using
     totalNumCompras = cliente.Total_de_Compras__c;
     categoriaCliente = cliente.Categoria_Cliente__c;
-    valoresTotais = cliente.ValoresTotais__c;
+    valoresTotais = cliente.Total_de_Compras__c;
+    ticketMedio = cliente.Ticket_M_dio__c;
+    numeroItens = cliente.ValoresTotais__c;	
     lista = new List<Compra2>();
  }
- 
 
-public ClienteFloricultura2__c clienteSelector(ClientesFloricultura__c clienteId)
-{
-  clienteSelector = [SELECT Nome__c, CPF__c, RG__c, Endereco__c, Telefone__c, Total_de_Compras__c, 
-  ValoresTotais__c, Categoria_Cliente__c FROM ClientesFloricultura__c WHERE Id in :clienteId];
 
-  return clienteSelector;
-}
- 
-public String checkCategoriaCliente()
+@AuraEnabled
+public static void addProdList(Compra2 compra){
+    lista.add(compra);
+} 
+
+@AuraEnabled
+public static String checkCategoriaCliente()
 {
- if(ticketMedio == 50 && numberoItens >=3 ){
-     categoriaCliente == 'Black';
+ if(ticketMedio == 50 && numeroItens >=3 ){
+     categoriaCliente = 'Black';
  }else if (ticketMedio == 50 && numeroItens == 1) {
-     categoriaCliente == 'Gold';
+     categoriaCliente = 'Gold';
  }else if (ticketMedio < 50 && numeroItens == 1){
-   categoriaCliente == 'Silver';
+   categoriaCliente = 'Silver';
  }
  return categoriaCliente;
 }
 
 
-
-public void checaCPF(String cpf){
+public Boolean checaCPF(String cpf){
     if (CPF.equals('00000000000') || CPF.equals('11111111111') ||
     CPF.equals('22222222222') || CPF.equals('33333333333') ||
     CPF.equals('44444444444') || CPF.equals('55555555555') ||
