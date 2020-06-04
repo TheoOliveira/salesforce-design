@@ -3,6 +3,7 @@ public with sharing class Compra2
 {
    
     public Id compraId{get; set;}
+    public Id cliente{get;set;}
     public Date dataCompra {get; set;}
     public String statusCompra {get; set;}
     public Double ticketMedio {get; set;}
@@ -13,7 +14,8 @@ public with sharing class Compra2
 
 public Compra2(Compra__c compraObj)
 {
-    compraId = compraObj.Id;   
+    compraId = compraObj.Id;
+    cliente = compraObj.cliente;   
     dataCompra = compraObj.Data_Compra__c;
     statusCompra = compraObj.Status_da_Compra__c;
     ticketMedio = compraObj.Ticket_Medio__c;

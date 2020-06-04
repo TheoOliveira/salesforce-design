@@ -1,55 +1,60 @@
 <aura:component
   implements="flexipage:availableForAllPageTypes"
   access="global"
-  controller="CadastraClienteController"
+  controller="CadastraProdutoController"
 >
-  <aura:attribute name="nome" type="String" />
-  <aura:attribute name="cpf" type="String" />
-  <aura:attribute name="rg" type="Double" />
-  <aura:attribute name="endereco" type="String" />
-  <aura:attribute name="telefone" type="Decimal" />
+  <aura:attribute name="nomeProduto" type="String" />
+  <aura:attribute name="estoque" type="Double" />
+  <aura:attribute name="preco" type="Double" />
+  <aura:attribute name="categoriaProduto" type="String" />
 
   <div class="slds-text-heading_medium slds-text-align_center"
-    >Cadastro de Cliente</div
+    >Cadastro de Produto</div
   >
 
   <div class="slds-box">
     <lightning:layout>
       <lightning:layoutItem padding="around-small">
         <div class="slds-m-around_medium">
-          <lightning:input type="text" label="Nome" value="{!v.nome}" />
+          <lightning:input
+            type="string"
+            label="Nome do Produto"
+            value="{!v.nomeProduto}"
+          />
         </div>
       </lightning:layoutItem>
       <lightning:layoutItem padding="around-small">
         <div class="slds-m-around_medium">
-          <lightning:input type="text" label="CPF" value="{!v.cpf}" />
+          <lightning:input type="number" label="Estoque" value="{!v.estoque}" />
         </div>
       </lightning:layoutItem>
       <lightning:layoutItem padding="around-small">
         <div class="slds-m-around_medium">
-          <lightning:input type="number" label="RG" value="{!v.rg}" />
+          <lightning:input type="number" label="Preço" value="{!v.preco}" />
+        </div>
+      </lightning:layoutItem>
+      <lightning:layoutItem padding="around-small">
+        <div class="slds-m-around_medium">
+          <lightning:select
+            label="Categoria do Produto"
+            value="{!v.categoriaProduto}"
+          >
+            <option value=""></option>
+            <option value="Vaso">Vaso</option>
+            <option value="Flor">Flor</option>
+            <option value="Insumo">Insumo</option>
+          </lightning:select>
         </div>
       </lightning:layoutItem>
     </lightning:layout>
-    <lightning:layout>
-      <lightning:layoutItem padding="around-small">
-        <div class="slds-m-around_medium">
-          <lightning:input type="text" label="Endereço" value="{!v.endereco}" />
-        </div>
-      </lightning:layoutItem>
-      <lightning:layoutItem padding="around-small">
-        <div class="slds-m-around_medium">
-          <lightning:input type="tel" label="Telefone" value="{!v.telefone}" />
-        </div>
-      </lightning:layoutItem>
-    </lightning:layout>
+
     <lightning:layout>
       <lightning:layoutItem class="slds-m-around_medium">
         <div class="slds-m-around_medium">
           <lightning:button
             variant="brand"
             label="Salvar"
-            onclick="{!c.salvaCliente}"
+            onclick="{!c.salvaProduto}"
           >
           </lightning:button>
         </div>
