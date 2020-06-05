@@ -7,7 +7,6 @@
   <aura:attribute name="autor" type="String" />
   <aura:attribute name="titulo" type="String" />
   <aura:attribute name="quantidade" type="Integer" />
-  <aura:attribute name="quantidadeDisponivel" type="Integer" />
 
   <div class="slds-grid slds-wrap">
     <div class="slds-size--1-of-2 slds-p-horizontal_medium">
@@ -29,14 +28,6 @@
         type="number"
         label="Quantidade"
         value="{!v.quantidade}"
-      />
-    </div>
-    <div class="slds-size--2-of-4 slds-p-horizontal_medium">
-      <lightning:input
-        type="number"
-        label="Quantidade Disponivel"
-        value="{!v.quantidadeDisponivel}"
-        readonly="true"
       />
     </div>
     <div class="slds-size--1-of-4 slds-p-horizontal_medium" id='button'>
