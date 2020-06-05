@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
+    salvaLeitor : function(component, event, helper) {
+        helper.enviaLeitor(component);
     }
 })
