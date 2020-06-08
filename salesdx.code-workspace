@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "LWC_Practice"
+		}
+	],
+	"settings": {
+		"salesforcedx-vscode-core.show-cli-success-msg": false,
+		"salesforcedx-vscode-apex.java.memory": 100,
+		"salesforcedx-vscode-core.telemetry.enabled": false,
+		"sass.lint.enable": false,
+		"stylelint.enable": false,
+		"salesforcedx-vscode-lightning.activationMode": "autodetect",
+		"salesforcedx-vscode-apex.java.home": "/usr/lib/jvm/zulu-11-amd64",
+		"salesforcedx-vscode-core.experimental.deployRetrieve": true
+	}
+}

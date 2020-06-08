@@ -1,23 +1,13 @@
 ({
-    enviaEmprestimo : function(component) {
-        const action = component.get('c.criaEmprestimo');
+    enviaDevolucao : function(component) {
+        const action = component.get('c.criaDevolucao');
 
-        //atributos
-        let nomeLeitor = component.get('v.nomeLeitor');
-        let nomeLivro = component.get('v.nomeLivro');
-        let quantidade = component.get('v.quantidade');
-
-        console.log(nomeLeitor);
-        console.log(nomeLivro);
-        console.log(quantidade);
-
-        //set params
-
+        let idEmprestimo = component.get('v.idEmprestimo');
+        console.log(idEmprestimo);
         action.setParams({
-          'nomeLivro': nomeLivro,
-            'nomeLeitor' : nomeLeitor,
-            'quantidade' : quantidade
+            'emprestimo': idEmprestimo
         });
+
         component.set("v.showSpinner", true);
     
         action.setCallback(this, function(response) {

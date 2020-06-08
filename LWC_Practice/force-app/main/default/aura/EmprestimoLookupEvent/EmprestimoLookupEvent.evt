@@ -1,6 +1,0 @@
-<aura:event
-  type="COMPONENT"
-  description="Passa a lista de Records do selecionado no parente object."
->
-<aura:attribute name='recordByEvent' type='sObject'/>
-</aura:event>

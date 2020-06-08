@@ -1,0 +1,10 @@
+<aura:component controller="LeitorLookupController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    
+    <aura:attribute name="selectedLookUpRecord" type="sObject" default="{}"/>
+    <aura:attribute name="leitorObj" type="Leitor__c" default="{'sobjectType':'Leitor__c'}"/>
+  
+ 
+      <c:customLookup objectAPIName="Leitor__c" IconName="standard:account" label="Nome do Leitor" selectedRecord="{!v.selectedLookUpRecord}" />
+      
+      
+</aura:component>

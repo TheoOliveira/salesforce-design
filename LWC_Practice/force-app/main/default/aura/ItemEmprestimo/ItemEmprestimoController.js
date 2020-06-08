@@ -1,5 +1,5 @@
 ({
-    myAction : function(component, event, helper) {
-
+    salvaItemEmprestimo : function(component, event, helper) {
+        helper.enviaItemEmprestimo(component);
     }
 })
