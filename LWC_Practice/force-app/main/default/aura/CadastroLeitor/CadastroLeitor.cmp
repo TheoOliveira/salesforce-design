@@ -1,0 +1,44 @@
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  access="global"
+  controller="CadastroLeitorController"
+>
+  <!--Atributos-->
+  <aura:attribute name="nome" type="String" />
+  <aura:attribute name="sobrenome" type="String" />
+  <aura:attribute name="rg" type="String" />
+  <aura:attribute name="idade" type="Integer" />
+
+  <div class="slds-grid slds-wrap">
+    <div class="slds-size--1-of-1 slds-p-horizontal_medium">
+      <h2 class="slds-text-heading_medium">Cadastro Leitor</h2>
+    </div>
+    <div class="slds-size--1-of-2 slds-p-horizontal_medium">
+      <lightning:input
+        type="string"
+        label="Nome do Leitor"
+        value="{!v.leitor}"
+      />
+    </div>
+    <div class="slds-size--1-of-2 slds-p-horizontal_medium">
+      <lightning:input
+        type="string"
+        label="Sobrenome do Leitor"
+        value="{!v.sobrenome}"
+      />
+    </div>
+    <div class="slds-size--2-of-4 slds-p-horizontal_medium">
+      <lightning:input type="string" label="RG" value="{!v.rg}" />
+    </div>
+    <div class="slds-size--2-of-4 slds-p-horizontal_medium">
+      <lightning:input type="number" label="Idade" value="{!v.idade}" />
+    </div>
+    <div class="slds-size--1-of-4 slds-p-horizontal_medium" id="button">
+      <lightning:button
+        class="slds-button slds-button_success"
+        label="Salvar"
+        onclick="{!c.salvaLeitor}"
+      ></lightning:button>
+    </div>
+  </div>
+</aura:component>

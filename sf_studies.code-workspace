@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "LWC_Practice"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"salesforcedx-vscode-core.show-cli-success-msg": false,
+		"eslint.enable": false,
+		"python.linting.enabled": false,
+		"typescript.tsserver.maxTsServerMemory": 50,
+		"salesforcedx-vscode-apex.java.memory": 90,
+		"python.terminal.activateEnvironment": false,
+		"ms-python.python": false	
+	}
+}

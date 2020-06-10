@@ -1,0 +1,32 @@
+<template>
+    <div class="slds-m-around_small">
+        <h1>Html Events</h1>
+        <lightning-input value={message}
+        label="Event Demo" onchange={handleChange} onblur={handleChange}></lightning-input>
+    
+    <lightning-button value="click" label="Click" onclick={handleChange}></lightning-button>
+<h2>Fim html Events</h2>
+
+<h2>Conditional Rendering</h2>
+<lightning-button label="First Image" value="First Image" variant="brand" onclick={showImage}></lightning-button>
+<lightning-button label="Second Image" variant="brand" value="Second Image" onclick={showImage}></lightning-button>
+<template if:true={isFirst}>
+    <h2>First Image</h2>
+    <img src="https://outrolado.com.br/wp-content/uploads/2020/04/tom-Jerry-730x410.png" width="400" height="auto">
+</template>
+<template if:true={isSecond}>
+    <h2>Second Image</h2>
+    <img src="https://http2.mlstatic.com/tom-jerry-1-totem-50cm-10-displays-D_NQ_NP_812055-MLB29474693116_022019-F.jpg" width="400" height="auto">
+</template>
+<lightning-card title="Contacts (use of for:each" icon-name="standard:contact">
+    <template for:each={contacts} for:item="item" for:index="index">
+        <p key={item.id} class="slds-m-around_small">
+            {index} - {item.Name} - &nbsp; {item.Email}
+        </p>
+    </template>
+</lightning-card>
+
+
+</div>
+
+</template>

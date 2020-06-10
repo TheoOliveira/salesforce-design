@@ -1,0 +1,59 @@
+<aura:component
+  implements="flexipage:availableForAllPageTypes"
+  access="global"
+  controller="CadastraClienteController"
+>
+  <aura:attribute name="nome" type="String" />
+  <aura:attribute name="cpf" type="String" />
+  <aura:attribute name="rg" type="Double" />
+  <aura:attribute name="endereco" type="String" />
+  <aura:attribute name="telefone" type="Decimal" />
+
+  <div class="slds-text-heading_medium slds-text-align_center"
+    >Cadastro de Cliente</div
+  >
+
+  <div class="slds-box">
+    <lightning:layout>
+      <lightning:layoutItem padding="around-small">
+        <div class="slds-m-around_medium">
+          <lightning:input type="text" label="Nome" value="{!v.nome}" />
+        </div>
+      </lightning:layoutItem>
+      <lightning:layoutItem padding="around-small">
+        <div class="slds-m-around_medium">
+          <lightning:input type="text" label="CPF" value="{!v.cpf}" />
+        </div>
+      </lightning:layoutItem>
+      <lightning:layoutItem padding="around-small">
+        <div class="slds-m-around_medium">
+          <lightning:input type="number" label="RG" value="{!v.rg}" />
+        </div>
+      </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout>
+      <lightning:layoutItem padding="around-small">
+        <div class="slds-m-around_medium">
+          <lightning:input type="text" label="Endereço" value="{!v.endereco}" />
+        </div>
+      </lightning:layoutItem>
+      <lightning:layoutItem padding="around-small">
+        <div class="slds-m-around_medium">
+          <lightning:input type="tel" label="Telefone" value="{!v.telefone}" />
+        </div>
+      </lightning:layoutItem>
+    </lightning:layout>
+    <lightning:layout>
+      <lightning:layoutItem class="slds-m-around_medium">
+        <div class="slds-m-around_medium">
+          <lightning:button
+            variant="brand"
+            label="Salvar"
+            onclick="{!c.salvaCliente}"
+          >
+          </lightning:button>
+        </div>
+      </lightning:layoutItem>
+    </lightning:layout>
+  </div>
+</aura:component>
