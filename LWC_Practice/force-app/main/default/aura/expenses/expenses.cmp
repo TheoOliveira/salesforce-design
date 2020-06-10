@@ -1,4 +1,17 @@
-<aura:component>
+<aura:component controller="ExpensesController">
+
+    <!--OBJECT ATTRIBUTE-->
+    <aura:attribute name="expenses" type="Expense__c[]"/>
+
+    <aura:attribute name="newExpense" type="Expense__c"
+    default="{ 'sobjectType': 'Expense__c',
+                   'Name': '',
+                   'Amount__c': 0,
+                   'Client__c': '',
+                   'Date__c': '',
+                   'Reimbursed__c': false }"/>
+<aura:handler name="init" action="{!c.doInit}" value="{!this}"/>    
+
     <!-- PAGE HEADER -->
     <lightning:layout class="slds-page-header slds-page-header--object-home">
         <lightning:layoutItem>
@@ -62,4 +75,6 @@
         </lightning:layoutItem>
     </lightning:layout>
     <!-- / NEW EXPENSE FORM -->
+    <c:expensesList expenses="{!v.expenses}"/>
+
 </aura:component>

@@ -1,3 +1,13 @@
-<aura:component>
-
-</aura:component>	
+<aura:component controller="ListaLivrosEmprestadosController">
+      
+    <aura:attribute type="Livro__c[]" name="listaLivro"/>
+    <aura:attribute name="colunas" type="List"/>
+      
+    <aura:handler name="init" value="{!this}" action="{!c.pegaLivros}"/>
+      
+    <lightning:datatable data="{! v.listaLivro }"
+                         columns="{! v.colunas }"
+                         keyField="id"
+                         hideCheckboxColumn="true"/>
+      
+</aura:component>

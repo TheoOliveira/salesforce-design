@@ -3,8 +3,8 @@
         const action = component.get('c.criaEmprestimo');
 
         //atributos
-        let nomeLeitor = component.get('v.nomeLeitor');
-        let nomeLivro = component.get('v.nomeLivro');
+        let nomeLeitor = component.get('v.selectedLookUpRecordLeitor').Id;
+        let nomeLivro = component.get('v.selectedLookUpRecordLivro').Id;
         let quantidade = component.get('v.quantidade');
 
         console.log(nomeLeitor);
@@ -14,7 +14,7 @@
         //set params
 
         action.setParams({
-          'nomeLivro': nomeLivro,
+            'nomeLivro': nomeLivro,
             'nomeLeitor' : nomeLeitor,
             'quantidade' : quantidade
         });

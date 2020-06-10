@@ -4,6 +4,9 @@
   <aura:attribute name="dataEmprestimo" type="String" />
   <aura:attribute name="nomeLivro" type="String" />
   <aura:attribute name="quantidade" type="Integer"/>
+  <aura:attribute name="selectedLookUpRecordLivro" type="sObject" default="{}"/>
+  <aura:attribute name="selectedLookUpRecordLeitor" type="sObject" default="{}"/>
+
 
 
 
@@ -12,21 +15,21 @@
       <h1 class="slds-text-heading_medium">Emprestimo</h1>
     </div>
     <div class="slds-size--1-of-2 slds-p-horizontal_medium">
-      <lightning:input
+      <!-- <lightning:input
         type="string"
         label="Nome do Leitor"
         value="{!v.nomeLeitor}"
-      />
-       <!--  <c:LeitorLookup selectedLookUpRecord="{!v.nomeLeitor}" /> -->
-      
+      /> -->
+      <c:customLookup aura:id="leitor" objectAPIName="Leitor__c" IconName="standard:account" label="Nome do Leitor" selectedRecord="{!v.selectedLookUpRecordLeitor}"/>
     </div>
     <div class="slds-size--2-of-4 slds-p-horizontal_medium">
-      <lightning:input
+      <!-- <lightning:input
         type="string"
         label="Nome do Livro"
         value="{!v.nomeLivro}"
-      />
-     <!--  <c:LivroLookup selectedLookUpRecord="{!v.nomeLivro}"/> -->
+      /> -->
+      <c:customLookup aura:id="livro" objectAPIName="Livro__c" IconName="standard:account" label="Nome do Livro" selectedRecord="{!v.selectedLookUpRecordLivro}"/>
+
     </div>
     <div class="slds-size--2-of-4 slds-p-horizontal_medium">
        <lightning:input
